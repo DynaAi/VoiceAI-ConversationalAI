@@ -25,7 +25,7 @@ One‑stop intelligent voice conversation solution – lightweight real‑time v
 
 ## Common Prerequisites
 
-1. Refer to [Voice Call Integration Preparation](https://docs-agentos.resultscloud.com/api-reference/agent/voice-prep) to create an Agent. After completing the API-based release, obtain the access credentials `robotKey` and `robotToken`.
+1. Refer to [Voice Call Integration Preparation](https://agents.dyna.ai/) to create an Agent. After completing the API-based release, obtain the access credentials `robotKey` and `robotToken`.
 2. Ensure the client runs in a secure environment:
    - Web: HTTPS or localhost
    - Android / iOS: normal network permissions

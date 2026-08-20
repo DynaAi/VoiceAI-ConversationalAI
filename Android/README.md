@@ -22,7 +22,7 @@ Deeply integrated with AgentStudio platform agents, it is suitable for intellige
 
 Before using this SDK:
 
-1. Refer to [Voice Call Integration Preparation](https://docs-agentos.resultscloud.com/api-reference/agent/voice-prep) to create an Agent. After completing the API-based release, obtain the access credentials `robotKey` and `robotToken`.
+1. Refer to [Voice Call Integration Preparation](https://agents.dyna.ai/) to create an Agent. After completing the API-based release, obtain the access credentials `robotKey` and `robotToken`.
 2. Target Android 7.0 (API 24) or higher
 
 > ⚠️ `robotKey` and `robotToken` are sensitive credentials. Keep them secure to avoid billing loss. Use server-side temporary tokens in production. **Never hardcode them in client code.** The demo ships with empty defaults — replace them with your own credentials.
@@ -31,7 +31,7 @@ Before using this SDK:
 
 ### 1. Import SDK
 
-Download `DYNA_AI_Voice_RTC_x.x.x.aar` from this repo's [GitHub Releases](https://github.com/<your-org>/AgentStudio-Voice-Android/releases), then place it into your module's `libs/` directory and add the dependency in `build.gradle.kts`:
+Download `DYNA_AI_Voice_RTC_x.x.x.aar` from this repo's [GitHub Releases](https://github.com/DynaAi/VoiceAI-ConversationalAI/releases), then place it into your module's `libs/` directory and add the dependency in `build.gradle.kts`:
 
 ```kotlin
 dependencies {
