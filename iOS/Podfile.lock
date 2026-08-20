@@ -2,15 +2,15 @@ PODS:
   - DYNAVoiceRTCKit (1.0.1)
 
 DEPENDENCIES:
-  - DYNAVoiceRTCKit (from `./DYNAVoiceRTCKit.podspec`)
+  - DYNAVoiceRTCKit (from `https://raw.githubusercontent.com/DynaAi/VoiceAI-ConversationalAI/main/iOS/DYNAVoiceRTCKit.podspec`)
 
 EXTERNAL SOURCES:
   DYNAVoiceRTCKit:
-    :podspec: "./DYNAVoiceRTCKit.podspec"
+    :podspec: https://raw.githubusercontent.com/DynaAi/VoiceAI-ConversationalAI/main/iOS/DYNAVoiceRTCKit.podspec
 
 SPEC CHECKSUMS:
   DYNAVoiceRTCKit: a3308cabfdfdf603e8615e9730e2ec25a592836a
 
-PODFILE CHECKSUM: a0bd864d1a6eb9855bdb06c0e2c082828a61d90b
+PODFILE CHECKSUM: ab91bc9b2f92d88ae04efdca204703c3dd8ab204
 
 COCOAPODS: 1.17.0
