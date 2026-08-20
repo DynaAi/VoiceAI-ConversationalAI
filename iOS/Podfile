@@ -9,3 +9,33 @@ use_frameworks!
 target 'DYNAVoiceRTCDemo' do
   pod 'DYNAVoiceRTCKit', :podspec => 'https://raw.githubusercontent.com/DynaAi/VoiceAI-ConversationalAI/main/iOS/DYNAVoiceRTCKit.podspec'
 end
+
+# The vendored DYNAVoiceRTCKit.xcframework nests the Agora frameworks inside
+# DYNAVoiceRTCKit.framework/Frameworks. Those nested frameworks are adhoc-signed,
+# which loads fine on simulator but is rejected on device (code signature invalid).
+# CocoaPods only re-signs the top-level framework, so re-sign the nested ones here.
+post_install do |installer|
+  installer.aggregate_targets.each do |aggregate_target|
+    user_project = aggregate_target.user_project
+    user_project.targets.each do |target|
+      next unless target.name == 'DYNAVoiceRTCDemo'
+      next unless target.respond_to?(:new_shell_script_build_phase)
+
+      phase_name = 'Re-sign Nested DYNAVoiceRTCKit Frameworks'
+      phase = target.shell_script_build_phases.find { |p| p.name == phase_name }
+      phase ||= target.new_shell_script_build_phase(phase_name)
+      phase.shell_script = <<~'SH'
+        FW_DIR="${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/DYNAVoiceRTCKit.framework/Frameworks"
+        if [ -d "$FW_DIR" ]; then
+          for f in "$FW_DIR"/*.framework; do
+            echo "Re-signing nested framework: $(basename "$f")"
+            /usr/bin/codesign --force --sign "$EXPANDED_CODE_SIGN_IDENTITY" --preserve-metadata=identifier,entitlements "$f"
+          done
+          echo "Re-signing DYNAVoiceRTCKit.framework"
+          /usr/bin/codesign --force --sign "$EXPANDED_CODE_SIGN_IDENTITY" --preserve-metadata=identifier,entitlements "${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/DYNAVoiceRTCKit.framework"
+        fi
+      SH
+    end
+    user_project.save
+  end
+end

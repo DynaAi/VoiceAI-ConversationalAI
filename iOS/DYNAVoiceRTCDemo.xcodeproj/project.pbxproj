@@ -120,6 +120,7 @@
 				84B2F93D2F977A6D00B556AD /* Frameworks */,
 				84B2F93E2F977A6D00B556AD /* Resources */,
 				8D9E3EB773AF30E81014360A /* [CP] Embed Pods Frameworks */,
+				E526244C5D6F347E6E6C1EFB /* Re-sign Nested DYNAVoiceRTCKit Frameworks */,
 			);
 			buildRules = (
 			);
@@ -215,6 +216,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DYNAVoiceRTCDemo/Pods-DYNAVoiceRTCDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		E526244C5D6F347E6E6C1EFB /* Re-sign Nested DYNAVoiceRTCKit Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Re-sign Nested DYNAVoiceRTCKit Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "FW_DIR=\"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/DYNAVoiceRTCKit.framework/Frameworks\"\nif [ -d \"$FW_DIR\" ]; then\n  for f in \"$FW_DIR\"/*.framework; do\n    echo \"Re-signing nested framework: $(basename \"$f\")\"\n    /usr/bin/codesign --force --sign \"$EXPANDED_CODE_SIGN_IDENTITY\" --preserve-metadata=identifier,entitlements \"$f\"\n  done\n  echo \"Re-signing DYNAVoiceRTCKit.framework\"\n  /usr/bin/codesign --force --sign \"$EXPANDED_CODE_SIGN_IDENTITY\" --preserve-metadata=identifier,entitlements \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/DYNAVoiceRTCKit.framework\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
