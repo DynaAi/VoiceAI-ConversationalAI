@@ -1,0 +1,6 @@
+framework module BRAIVoiceRTCKit {
+  umbrella header "BRAIVoiceRTCKit.h"
+  export *
+
+  module * { export * }
+}

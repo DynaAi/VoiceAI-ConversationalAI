@@ -1,0 +1,11 @@
+# DYNAVoiceRTCDemo - integrate DYNAVoiceRTCKit SDK as a third party
+#
+# For releases, fetch from the demo repository GitHub Release page (tag must match the release version)
+#   pod 'DYNAVoiceRTCKit', :podspec => 'https://raw.githubusercontent.com/DynaAi/VoiceAI-ConversationalAI/main/iOS/DYNAVoiceRTCKit.podspec''
+
+platform :ios, '13.0'
+use_frameworks!
+
+target 'DYNAVoiceRTCDemo' do
+  pod 'DYNAVoiceRTCKit', :podspec => 'https://raw.githubusercontent.com/DynaAi/VoiceAI-ConversationalAI/main/iOS/DYNAVoiceRTCKit.podspec'
+end

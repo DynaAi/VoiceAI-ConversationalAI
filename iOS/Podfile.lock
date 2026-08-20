@@ -1,0 +1,16 @@
+PODS:
+  - DYNAVoiceRTCKit (1.0.1)
+
+DEPENDENCIES:
+  - DYNAVoiceRTCKit (from `https://git.dyna.tech/pd_eng/rtc/voice_ios_sdk_demo/-/raw/main/DYNAVoiceRTCKit.podspec`)
+
+EXTERNAL SOURCES:
+  DYNAVoiceRTCKit:
+    :podspec: https://git.dyna.tech/pd_eng/rtc/voice_ios_sdk_demo/-/raw/main/DYNAVoiceRTCKit.podspec
+
+SPEC CHECKSUMS:
+  DYNAVoiceRTCKit: d8eb5c12d49903d85edd00fc4fd71a33295ee35b
+
+PODFILE CHECKSUM: 811d01fd3ad0580aecbe0ac312a7fd526775ffc3
+
+COCOAPODS: 1.17.0
